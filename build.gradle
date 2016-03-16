@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'http://repo.jenkins-ci.org/releases/'
+        }
+    }
+    dependencies {
+        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.15.0'
+    }
+}
+
+apply plugin: 'org.jenkins-ci.jpi'
+
+group = "org.jenkins-ci.plugins"
+version = "0.0.1-SNAPSHOT"    // Or whatever your version is.
+description = "StackOverflowError demo"
+
+jenkinsPlugin {
+	 coreVersion = '1.652'
+	 displayName = 'Name'
+	 url = 'http://wiki.jenkins-ci.org/display/JENKINS/SomePluginPage'
+	 gitHubUrl = 'https://github.com/jenkinsci/some-plugin'
+   shortName = "stackoverflow-error-plugin"
+
+	 developers {
+			 developer {
+					 id 'geribatai'
+					 name 'Simas Cepaitis'
+					 email 'simas.cepaitis@snc.lt'
+			 }
+	 }
+}
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy-all:2.4.6'
+  testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
